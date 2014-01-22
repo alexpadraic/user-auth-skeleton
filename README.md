@@ -1,8 +1,8 @@
-# Web Flash Cards 1 Multiple Decks 
- 
-##Learning Competencies 
+# Web Flash Cards 1 Multiple Decks
 
-##Summary 
+## Learning Competencies
+
+## Summary
 
  We're going to create a web-based flash card application, starting with one that has a single deck.  Eventually we'll add support for user-generated decks and improve the interface via AJAX.
 
@@ -57,11 +57,11 @@ When a user is done they should be redirected to a page that shows a list of all
 
 ### Submitting Your Attempt
 
-When you're done, find a staff member to look over your code and UI to review it.  After you incorporate their feedback, paste your repo URL into a gist and **submit the gist**. 
+When you're done, find a staff member to look over your code and UI to review it.  After you incorporate their feedback, paste your repo URL into a gist and **submit the gist**.
 
-##Releases
-###Release 0 
+## Releases
+### Release 0
 
-##Optimize Your Learning 
+## Optimize Your Learning
 
-##Resources
+## Resources
