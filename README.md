@@ -64,3 +64,6 @@ This project is as much about project management and team dynamics as it is abou
 * [Rspec](http://rspec.info/)
 * [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 * [Capybara](https://github.com/jnicklas/capybara)
+* [Flash card example][card example]
+
+[card example]: http://wiki.webz.cz/dict/
