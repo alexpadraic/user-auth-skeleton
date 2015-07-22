@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
 
 # PostgreSQL driver
 gem 'pg'
