@@ -1,19 +1,17 @@
-# Web Flash Cards 1 Multiple Decks 
+# Web Flash Cards 
  
-##Learning Competencies 
+## Learning Competencies 
 
 - Manage application complexity via proper modeling.
 - Use project management fundamentals, including division of labor.
 - Use product management fundamentals in the face of incomplete specifications.
 - Further practice with ActiveRecord, Sinatra, and ERB.
 
-##Summary 
+## Summary
+We're going to create a web-based flash card application.  Our application will present users with decks of flash cards.  Users will select a deck and play a round of flash cards.  More specific requirements will be given in the releases.
 
-We're going to create a web-based flash card application, starting with one that has a single deck.  Eventually we'll add support for user-generated decks and improve the interface via AJAX.
+This will be our most complicated web application yet.  In addition to getting over the technical hurdles, this challenge will also have dimensions of product management.  We'll begin to get a feel for how to manage complexity as projects grow and become more nuanced on both the front- and backends. As in the real-world, we'll also be faced with incomplete and ambiguous specifications.
 
-This will be our most complicated web application yet.  The goal is to get a feel for how you manage complexity as projects grow and become more nuanced on both the front-end and back-end.
-
-This challenge will also have dimensions of product management and everyday engineering.  Often specifications you receive are incomplete, ambiguous, or even contradictory.
 
 ##Releases
 
