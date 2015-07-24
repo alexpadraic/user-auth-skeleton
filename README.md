@@ -1,5 +1,4 @@
 # Web Flash Cards 
- 
 
 ## Summary
 We're going to create a web-based flash card application.  Our application will present users with decks of flash cards.  Users will select a deck and play a round of flash cards.
@@ -45,17 +44,31 @@ We'll want to get a thorough understanding of the application that we need to bu
 *Note:*  We'll most likely need at least the following models: `User`, `Deck`, `Card`, `Round`, and `Guess`.
 
 
-###Release 3 : Testing
-If you haven't been writing tests as you go, or even better using TDD, then now is the time to add them.  You should have ample test coverage of your model and controller.  If you want you can explore testing of your views as well.
+### Release 2: Additional Features
+With our MVP in place, we can add features to enhance our application.  We have a short wish list of features that we can choose to implement.  Or maybe we have a feature or two of our own that we'd like to add.
+
+**User-created decks:**  In the MVP, users were able to select pre-existing decks to play.  It would be nice if users able to create their own custom decks with custom cards.  In addition, users should be able to mark a deck as private so that only they can play their private decks.
+
+**Visualize profile statistics:**  In the MVP, the historical round statistics are displayed in a tabular form.  It would be nice if users could track their progress over time in a visual format—perhaps in graphs generated using the [d3.js JavaScript library](http://d3js.org/).
+
+**Listing decks:**  In the MVP, all decks are listed on the homepage.  It would be nice if the decks were organized: a list of the newest decks, a list of the most commonly played decks, etc.  Some way of highlighting to users decks that they might want to play.
+
+**Mobile friendly:**  In the MVP, we designed our site for display on a laptop, desktop, or other larger screen device.  It would be nice if our [layouts were responsive](http://learn.shayhowe.com/advanced-html-css/responsive-web-design/) to the dimensions of device screens, so that users could easily use the application on their phones.
+
+
+### Release 3: Testing
+If we haven't been writing tests as we go—or even better using TDD—then now is the time to add them.  We should have ample test coverage of our models and controllers.  We could explore testing our features as well.
+
+*Testing Active Record models:*
+- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+
+*Testing Sinatra controllers:*
+- [Taryn's Blog](http://tarynsauer.tumblr.com/post/72337538488/using-rspec-to-test-sinatra-controller)
+- [GetLaura](http://www.getlaura.com/how-to-test-a-sinatra-app-with-rspec/)
+
+*Feature testing:*
+- [capybara](https://github.com/jnicklas/capybara)
+
 
 ##Optimize Your Learning 
 This project is as much about project management and team dynamics as it is about the code.  What skills / lessons did you learn from working with a team?  How will you work better next time?
-
-##Resources
-
-* [Rspec](http://rspec.info/)
-* [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
-* [Capybara](https://github.com/jnicklas/capybara)
-* [Flash card example][card example]
-
-[card example]: http://wiki.webz.cz/dict/
