@@ -1,55 +1,49 @@
 # Web Flash Cards 
  
-## Learning Competencies 
-
-- Manage application complexity via proper modeling.
-- Use project management fundamentals, including division of labor.
-- Use product management fundamentals in the face of incomplete specifications.
-- Further practice with ActiveRecord, Sinatra, and ERB.
 
 ## Summary
-We're going to create a web-based flash card application.  Our application will present users with decks of flash cards.  Users will select a deck and play a round of flash cards.  More specific requirements will be given in the releases.
+We're going to create a web-based flash card application.  Our application will present users with decks of flash cards.  Users will select a deck and play a round of flash cards.
 
-This will be our most complicated web application yet.  In addition to getting over the technical hurdles, this challenge will also have dimensions of product management.  We'll begin to get a feel for how to manage complexity as projects grow and become more nuanced on both the front- and backends. As in the real-world, we'll also be faced with incomplete and ambiguous specifications.
+This will be our most complicated web application yet.  In addition to getting over the technical hurdles, this challenge will also have dimensions of product management.  We'll begin to get a feel for how to manage complexity as projects grow and become more nuanced on both the front- and backends. We'll need to divide labor and collaborate as a team.  As in the real-world, we'll also be faced with incomplete and ambiguous specifications.
 
 
-##Releases
+## Releases
+### Release 0: Build the MVP
+We're going to begin by focusing on building the minimum viable product (MVP).  There are a lot of interesting features a flashcard application can include, but let's start by getting the core functionality in place.  We have some requirements and descriptions of our application.  These might not be as complete and comprehensive as we'd like; we'll need to fill in some of the blanks ourselves.
 
-###Release 0 : Application Details
+**User story:**  As a user, I visit the homepage and see a list of decks.  I click on the name of a deck and play a round with that deck.  After the round, I see stats on how well I performed.  If I'm a registered user, I can then visit my profile to see stats for all the rounds I've played.
 
-You'll pre-determine the set of decks.  Later we'll add the ability for users to add their own, but for now you can add them via `seeds.rb` if you want.  Add more than one.  Ideas:
+**Round description:**  After a user selects a deck, they play a round.  We have specific requirements for what should happen when a user plays a  round.
 
-* English-to-other-language dictionaries. [Try these](http://wiki.webz.cz/dict/).
-* US state capitals
-* World capitals
-* Historical events
+- The user plays every card in the deck.
+- The cards are played in a random order.
+- For each card, the user is shown a prompt and responds by submitting a guess.
+- After submitting a guess, the user is informed whether or not the guess was correct and shown the correct answer.
+- The round continues until each card is answered correctly—after going through each card, cards answered incorrectly will be displayed again.
 
-Decks have many cards.  A card belongs to a single deck.  When a user signs in, they'll see a list of decks.
+**Round statistics description:**  After a user completes a round, the user should be shown statistics for the round.  We have specific requirements for what statistics should be displayed.
 
-Users can play a "round," which is a series of guesses over all the cards in a deck.  User should be able to see a list of all the rounds they've completed and statistics for that round (deck used, number guessed, number correct, number incorrect, etc.)
+- Name of the deck played.
+- The number of cards answered correctly on the first guess compared to the number of cards in the deck.
+- Total number of guesses made.
 
-To make it easier, we'll say that a user can only use the flash cards if they're logged in.
+**Profile description:**  Registered users should have a profile page that showcases their flashcard history.
 
-###Release 1 : Routes &amp; Models
+- Statistics for all rounds played should be available.
+- Statistics should be organized by deck and displayed in chronological order.
+- For each round, required details are the date the round was played, the number of cards in the deck, the number of cards answered correctly on the first guess, and the total number of guesses needed to complete the round.
 
-Determine your routes, and use multiple controller files.  When I'm logged in, I'll want to be able to do things like:
+**Mockups:**  We have some mockups that provide guidance on how our pages should look.
 
-* Start a round by picking a deck
-* Play through a round
-* Get feedback on how my round went
-* See how all my past rounds went
+- [Homepage](mockups/homepage.png)
+- [Displaying a card to the user](mockups/display-a-card.png)
+- [End of round statistics](mockups/round-statistics.png)
+- [Profile page](mockups/profile.png)
 
-What routes and models will you need?  Most likely you'll need *at least* the following models: `User`, `Deck`, `Card`, `Round`, and `Guess`.
+We'll want to get a thorough understanding of the application that we need to build.  Once we understand what's expected of us, we can collaborate on how to get it done.  We'll be making a lot of decisions.  Maybe we make the right decision, maybe the wrong one.  As a team, we'll need to communicate and collaborate ... and most likely make some course corrections as we go along.
 
-Think about how you're going to model a `Round` in particular.  You make a guess and see the answer regardless of whether you were correct, although the system tells you whether you were correct.  If your guess was incorrect, you're given another random card so far that you haven't guessed correctly, until you've run out of guesses.
+*Note:*  We'll most likely need at least the following models: `User`, `Deck`, `Card`, `Round`, and `Guess`.
 
-There are other ways to conduct a round, but this is how we'll do it for now.  Feel free to do something more interesting if the spirit moves you.
-
-###Release 2 : Simple UI
-
-Create a simple UI that lets you submit guesses and, if correct, advances to the next card in the round.  You should log both incorrect and correct guesses.
-
-When a user is done they should be redirected to a page that shows a list of all the rounds they've completed in chronological order from most recent to least recent.  On this page you should also include stats about the round, like total number of guesses, total number of cards in the round, % correct, etc.
 
 ###Release 3 : Testing
 If you haven't been writing tests as you go, or even better using TDD, then now is the time to add them.  You should have ample test coverage of your model and controller.  If you want you can explore testing of your views as well.
