@@ -47,7 +47,7 @@ We'll want to get a thorough understanding of the application that we need to bu
 ### Release 2: Additional Features
 With our MVP in place, we can add features to enhance our application.  We have a short wish list of features that we can choose to implement.  Or maybe we have a feature or two of our own that we'd like to add.
 
-**User-created decks:**  In the MVP, users were able to select pre-existing decks to play.  It would be nice if users able to create their own custom decks with custom cards.  In addition, users should be able to mark a deck as private so that only they can play their private decks.
+**User-created decks:**  In the MVP, users were able to select pre-existing decks to play.  It would be nice if users were able to create their own custom decks with custom cards.  In addition, users should be able to mark a deck as private so that only they can play their private decks.
 
 **Visualize profile statistics:**  In the MVP, the historical round statistics are displayed in a tabular form.  It would be nice if users could track their progress over time in a visual format—perhaps in graphs generated using the [d3.js JavaScript library](http://d3js.org/).
 
