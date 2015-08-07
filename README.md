@@ -51,6 +51,8 @@ With our MVP in place, we can add features to enhance our application.  We have 
 
 **Visualize profile statistics:**  In the MVP, the historical round statistics are displayed in a tabular form.  It would be nice if users could track their progress over time in a visual format—perhaps in graphs generated using the [d3.js JavaScript library](http://d3js.org/).
 
+*Note:* Time-box exploring the d3.js library; it can have a steep learning curve and become a rabbit hole.
+
 **Listing decks:**  In the MVP, all decks are listed on the homepage.  It would be nice if the decks were organized: a list of the newest decks, a list of the most commonly played decks, etc.  Some way of highlighting to users decks that they might want to play.
 
 **Mobile friendly:**  In the MVP, we designed our site for display on a laptop, desktop, or other larger screen device.  It would be nice if our [layouts were responsive](http://learn.shayhowe.com/advanced-html-css/responsive-web-design/) to the dimensions of device screens, so that users could easily use the application on their phones.
