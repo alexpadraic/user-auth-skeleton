@@ -61,6 +61,8 @@ With our MVP in place, we can add features to enhance our application.  We have 
 ### Release 3: Testing
 If we haven't been writing tests as we go—or even better using TDD—then now is the time to add them.  We should have ample test coverage of our models and controllers.  We could explore testing our features as well.
 
+*Note:*  The `db:create` Rake task created both a developlment and a test database.  The `db:migrate` Rake task runs the migrations only in the development database.  To prepare our test database for testing, we'll need to execute the `db:test:prepare` Rake task.
+
 *Testing Active Record models:*
 - [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 
