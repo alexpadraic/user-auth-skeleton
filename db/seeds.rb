@@ -10,6 +10,6 @@ Card.create(question: 'Which continent where USA', answer: 'North America', deck
 
 
 
-user = User.create(email: 'eu@gmail.com', username: 'renan', password: '123')
+user = User.create(email: 'eu@gmail.com', name: 'renan', password_hash: '123')
 
 
