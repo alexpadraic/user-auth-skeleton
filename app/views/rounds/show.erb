@@ -1,0 +1,4 @@
+<p> You have answered <%= session[:round_info][:correct] %> out of <%= Deck.find(session[:round_info][:deck_id]).cards.count %> with a correct percentage of <%= (session[:round_info][:correct].to_f / Deck.find(session[:round_info][:deck_id]).cards.count.to_f)*100 %>% </p>
+<p>Your total guesses this round: <%= session[:round_info][:guesses] %></p>
+
+
