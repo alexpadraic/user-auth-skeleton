@@ -10,3 +10,15 @@ second_deck = Deck.create(name: 'Nature')
 Card.create(question: 'Where is Yosemite park?', answer: 'California', deck_id: second_deck.id)
 Card.create(question: 'Where is Yellowstone?', answer: 'Wyoming', deck_id: second_deck.id)
 Card.create(question: 'Where is Grand Canyon', answer: 'Arizona', deck_id: second_deck.id)
+
+5.times do
+  User.create(email: Faker::Internet.email, name: Faker::Name.name, password_hash: '123')
+end
+
+10.times do
+  deck = Deck.create(name: Faker::App.name)
+
+  3.times do
+    Card.create(question: Faker::Commerce.department, answer: Faker::Commerce.product_name, deck_id: deck.id)
+  end
+end
