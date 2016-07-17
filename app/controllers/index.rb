@@ -14,8 +14,6 @@ end
 
 get '/decks/:deck_id/cards/:card_id' do
 
-
-
   @current_deck = Deck.find(params[:deck_id])
   @current_card = Card.find(params[:card_id])
   session[:card_ids_in_play] ||= @current_deck.cards.map(&:id)
