@@ -1,3 +1,13 @@
-<% @decks.each do |d| %>
-<li><a href="/decks/<%= d.id%>"> <%= d.name %> </a></li>
-<% end%>
+<h3><%= @current_deck.name %></h3>
+
+<form id="cheer_caller" action="/decks/<%= @current_deck.id %>/cards/<%= @current_card.id %>" method="post">
+  <p><%= @current_card.question %></p>
+
+  <label for="user_guess">Your guess here:</label>
+  <input type="text" name="user_guess"><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+
+<p></p>
