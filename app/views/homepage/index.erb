@@ -1,7 +1,7 @@
-<% if current_user %>
+<% if @current_user %>
 <div>
-<h1><%= @user.name %></h1>
- <% @user.decks.each do |deck| %>
+<h1><%= @current_user.name %></h1>
+ <% @current_user.decks.each do |deck| %>
   <p><%= deck.name %></p>
   <% end %>
 </div>
@@ -9,7 +9,7 @@
 
 
 
-<% @decks.each do |d| %>
-<li><a href="/decks/<%= d.id %>/cards/<%= rand(1..(Card.where(deck_id: d.id).size)) %>"> <%= d.name %> </a></li>
+<% @decks.each do |deck| %>
+  <li><a href="/decks/<%= deck.id %>/cards/<%= deck.cards.map(&:id).sample %>"><%= deck.name %></a></li>
 <% end%>
 

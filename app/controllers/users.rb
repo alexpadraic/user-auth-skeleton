@@ -1,5 +1,3 @@
-
-
 get '/users/new' do
   erb :'/users/new'
 end
@@ -13,6 +11,6 @@ post '/users/new' do
   end
 end
 
-# get '/users/:id' do
-#   erb :'/users/profile'
-# end
+get '/users/:id' do
+  erb :'/users/show'
+end
