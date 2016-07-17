@@ -1,0 +1,22 @@
+<div class="user_show_body"><br>
+    <h3><%= current_user.name %>'s Profile</h3><br>
+    <% current_user.decks.uniq.each do |deck| %>
+      <h3><%= deck.name %></h3>
+      <table border="1">
+        <tr>
+          <th>Date</th>
+          <th>Cards in Deck</th>
+          <th>First Guess Correct</th>
+          <th>Total Guesses</th>
+        </tr>
+      <% deck.rounds.where(user_id: @current_user.id).each do |round| %>
+        <tr>
+          <td><%= round.created_at %></td>
+          <td><%= deck.cards.count %></td>
+          <td><%= round.correct_on_first_try %></td>
+          <td><%= round.total_guesses %></td>
+        </tr>
+      <% end %>
+      </table>
+    <% end %>
+</div>
