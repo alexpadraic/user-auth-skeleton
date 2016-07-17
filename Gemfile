@@ -13,7 +13,6 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 
 gem 'shotgun'
-gem 'bcrypt'
 
 group :test do
   gem 'shoulda-matchers'
