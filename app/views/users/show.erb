@@ -1,0 +1,19 @@
+<div class="user_show_body"><br>
+  <h2>Flashcards</h2><br>
+    <h3><%=#{@user.name}%></h3><br>
+      <%=#{@deck.name}%><br>
+        <table border="1">
+      <tr>
+        <td>Date</td>
+        <td>Cards in Deck</td>
+        <td>First Guess Correct</td>
+        <td>Total Guesses</td>
+      </tr>
+      <tr>
+        <td>Today</td>
+        <td><%="#{Deck.cards.count}"%></td>
+        <td><%="#{Round.correct_on_first_try.count"%></td>
+        <td><%="#{Round.total_guesses.count}"%></td>
+      </tr>
+        </table>
+</div>
