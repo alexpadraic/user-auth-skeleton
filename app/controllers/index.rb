@@ -1,6 +1,14 @@
 get '/' do
-  erb :index
+  redirect '/homepage'
 end
+
+get '/homepage' do
+  @decks = Deck.all
+
+  erb :'homepage/index'
+end
+
+
 
  get '/decks/:deck_id/card/:card_id' do
   @cards = Card.all
