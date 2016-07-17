@@ -28,7 +28,6 @@ get '/decks/:deck_id/cards/:card_id' do
     session[:round_info][:guesses] ||= 0
     session[:round_info][:correct] ||= 0
     session[:round_info][:deck_id] ||= @current_deck.id
-    session[:round_info][:user_id] ? @current_user.id : 0
   end
 
 
@@ -36,7 +35,7 @@ get '/decks/:deck_id/cards/:card_id' do
     @result_response = "Correct! The answer is: #{@current_card.answer}"
     session[:round_info][:card_ids_in_play].delete(@current_card.id)
     session[:round_info][:guesses] += 1
-    session[:round_info][:correct] += 1
+    session[:round_info][:correct] += 1 if session[:round_info][:incorrect_cards].exclude?@current_card.id
   elsif params[:user_guess].nil? == false
     session[:round_info][:guesses] += 1
     session[:round_info][:incorrect_cards] << @current_card.id if session[:round_info][:incorrect_cards].exclude?@current_card.id
@@ -50,7 +49,8 @@ get '/decks/:deck_id/cards/:card_id' do
 end
 
 get '/rounds/show' do
-
+  p params
+  p session
 
   erb :'rounds/show'
 end
