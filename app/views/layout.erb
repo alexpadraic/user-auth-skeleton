@@ -40,17 +40,20 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
-      <% if 1<2 %>
+      <% if session[:user_id] == nil %>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#GET_LOGIN">Login </a></li>
+        <li><a href="/sessions">Login </a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#GET_REGISTER">Register </a></li>
+        <li><a href="/users/new">Register </a></li>
       </ul>
       <% else %>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#GET_LOGOUT">Logout</a></li>
+        <li><a href="/sessions/logout">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#GET_LOGOUT">Profile</a></li>
       </ul>
       <% end %>
     </div><!-- /.navbar-collapse -->

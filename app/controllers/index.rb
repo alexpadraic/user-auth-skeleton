@@ -4,7 +4,7 @@ end
 
 get '/homepage' do
   @decks = Deck.all
-
+  @user = User.find(session[:user_id])
   erb :'homepage/index'
 end
 

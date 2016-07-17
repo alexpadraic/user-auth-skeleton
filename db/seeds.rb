@@ -3,16 +3,17 @@ Card.create(question: 'What is the circumference of Earth at the equator', answe
 Card.create(question: 'What means USA', answer: 'United State', deck_id: cu.id)
 Card.create(question: 'Which continent where USA', answer: 'North America', deck_id: cu.id)
 
-user = User.create(email: 'eu@gmail.com', name: 'renan', password_hash: '123')
+user = User.create(email: 'eu@gmail.com', name: 'renan', password: '123')
 
 
-second_deck = Deck.create(name: 'Nature')
-Card.create(question: 'Where is Yosemite park?', answer: 'California', deck_id: second_deck.id)
-Card.create(question: 'Where is Yellowstone?', answer: 'Wyoming', deck_id: second_deck.id)
-Card.create(question: 'Where is Grand Canyon', answer: 'Arizona', deck_id: second_deck.id)
+second_deck = user.decks.create(name: 'Nature')
+
+second_deck.cards.create(question: 'Where is Yosemite park?', answer: 'California', deck_id: second_deck.id)
+second_deck.cards.create(question: 'Where is Yellowstone?', answer: 'Wyoming', deck_id: second_deck.id)
+second_deck.cards.create(question: 'Where is Grand Canyon', answer: 'Arizona', deck_id: second_deck.id)
 
 5.times do
-  User.create(email: Faker::Internet.email, name: Faker::Name.name, password_hash: '123')
+  User.create(email: Faker::Internet.email, name: Faker::Name.name, password: '123')
 end
 
 10.times do
