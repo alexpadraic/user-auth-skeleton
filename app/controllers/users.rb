@@ -42,5 +42,17 @@ get '/users/:id/cards/new' do
   erb :'cards/new'
 end
 
+post '/users/decks/:deck_id/cards' do
+  @card = Card.new(question: params[:question], answer: params[:answer], deck_id: params[:deck_id])
+  @deck = Deck.find(params[:deck_id])
+
+  if @card.save
+    erb :'cards/new'
+  else
+    @error = "Card not saved!"
+    erb :'cards/new'
+  end
+end
+
 
 
