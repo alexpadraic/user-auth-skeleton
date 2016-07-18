@@ -7,6 +7,7 @@ get '/homepage' do
   p session
   session[:card_ids_in_play] = nil
   session[:round_info] = nil
+  session[:current_round_id] = nil
   @decks = Deck.all
 
   erb :'homepage/index'
@@ -28,6 +29,10 @@ get '/decks/:deck_id/cards/:card_id' do
     session[:round_info][:correct] ||= 0
     session[:round_info][:deck_id] ||= @current_deck.id
     session[:round_info][:user_id] ? @current_user.id : 0
+
+      if session[:user_id] # Create a round for when a user in logged in
+        session[:current_round_id] = Round.create(deck_id: params[:deck_id], user_id: session[:user_id]).id
+      end
   end
 
 
@@ -36,29 +41,29 @@ get '/decks/:deck_id/cards/:card_id' do
     session[:card_ids_in_play].delete(@current_card.id)
     session[:round_info][:guesses] += 1
     session[:round_info][:correct] += 1
+
+    if session[:user_id] # Updating attributes
+      current_round = Round.find(session[:current_round_id]) # Keeping track of the round
+      current_round.update_attribute(:correct_on_first_try, session[:round_info][:correct])
+      current_round.update_attribute(:total_guesses, session[:round_info][:guesses])
+    end
+
   elsif params[:user_guess].nil? == false
     session[:round_info][:guesses] += 1
+
+     if session[:user_id] # Updating attributes
+      current_round = Round.find(session[:current_round_id]) # Keeping track of the round
+      current_round.update_attribute(:total_guesses, session[:round_info][:guesses])
+    end
+
     @result_response = "WRONG! The answer was: #{@current_card.answer}"
   end
-80.times{print "*"}
-  p session[:round_info][:guesses]
-  p session[:round_info][:correct]
-
-  if session[:user_id]
-    #p current_user.rounds.create(correct_on_first_try: )
-    # user = User.find(current_user)
-    80.times{print "="}
-    # user.rounds.create()
-  end
-80.times{print "*"}
-  p params
-  p session
 
   erb :'deck/index'
 end
 
 get '/rounds/show' do
-
+session[:current_round_id] = nil
 
 erb :'rounds/show'
 end

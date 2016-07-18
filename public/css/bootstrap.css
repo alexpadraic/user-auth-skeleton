@@ -1416,7 +1416,7 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  font-family: Halflings;
 }
 ul,
 ol {
@@ -6764,18 +6764,21 @@ button.close {
 }
 
 .boxe {
-  padding: 5%;
+  width: 70%;
+  margin-left: 5%;
 }
 .second {
+
   width: 30%;
-  padding: 20%
-   margin: 20%;
+  padding: 50%
+  margin: 20%;
 }
 
 .word {
-
-
   font-size: 200%;
+}
 
+.flash {
+  padding-bottom: 5%;
 }
 /*# sourceMappingURL=bootstrap.css.map */

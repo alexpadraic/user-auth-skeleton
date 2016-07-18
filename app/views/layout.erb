@@ -41,12 +41,13 @@
       <ul class="nav navbar-nav">
       </ul>
       <% if session[:user_id] %>
+
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/sessions/logout">Logout</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
+          <li><a href="/users/<%= session[:user_id] %>"><%=  "#{current_user.name}"%></a></li>
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
