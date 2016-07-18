@@ -1595,6 +1595,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  font-size: 150%;
 }
 @media (min-width: 768px) {
   .container {
@@ -6766,19 +6767,26 @@ button.close {
   }
 }
 
+.result {
+  padding-top: 5%;
+}
+
 .boxe {
   width: 70%;
   margin-left: 5%;
 }
 .second {
-
   width: 30%;
   padding: 50%
   margin: 20%;
 }
 
 .word {
-  font-size: 200%;
+  font-size: 130%;
+}
+
+.password {
+  margin-top: 1%;
 }
 
 .flash {
