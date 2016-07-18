@@ -3,11 +3,8 @@ get '/' do
 end
 
 get '/homepage' do
-  p params
-  p session
-  session[:card_ids_in_play] = nil
   session[:round_info] = nil
-  session[:current_round_id] = nil
+  session[:current_round_id] = nil # Reset the round
   @decks = Deck.all
 
   erb :'homepage/index'
@@ -17,14 +14,11 @@ get '/decks/:deck_id/cards/:card_id' do
 
   @current_deck = Deck.find(params[:deck_id])
   @current_card = Card.find(params[:card_id])
-  session[:card_ids_in_play] ||= @current_deck.cards.map(&:id)
-
-  # if session[:card_ids_in_play].length == 0
-  #   erb :'rounds/show'
-  # end
 
   if session[:round_info].nil?
     session[:round_info] = {}
+    session[:round_info][:incorrect_cards] ||= []
+    session[:round_info][:card_ids_in_play] ||= @current_deck.cards.map(&:id)
     session[:round_info][:guesses] ||= 0
     session[:round_info][:correct] ||= 0
     session[:round_info][:deck_id] ||= @current_deck.id
@@ -35,10 +29,9 @@ get '/decks/:deck_id/cards/:card_id' do
       end
   end
 
-
   if params[:user_guess] == @current_card.answer
     @result_response = "Correct! The answer is: #{@current_card.answer}"
-    session[:card_ids_in_play].delete(@current_card.id)
+    session[:round_info][:card_ids_in_play].delete(@current_card.id)
     session[:round_info][:guesses] += 1
     session[:round_info][:correct] += 1
 
@@ -55,7 +48,6 @@ get '/decks/:deck_id/cards/:card_id' do
       current_round = Round.find(session[:current_round_id]) # Keeping track of the round
       current_round.update_attribute(:total_guesses, session[:round_info][:guesses])
     end
-
     @result_response = "WRONG! The answer was: #{@current_card.answer}"
   end
 
@@ -63,8 +55,7 @@ get '/decks/:deck_id/cards/:card_id' do
 end
 
 get '/rounds/show' do
-session[:current_round_id] = nil
-
-erb :'rounds/show'
+  session[:current_round_id] = nil
+  erb :'rounds/show'
 end
 

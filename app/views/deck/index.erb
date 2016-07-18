@@ -11,10 +11,10 @@
 
 <% if @result_response %>
   <p><%= @result_response %></p>
-  <% if session[:card_ids_in_play].length == 0 %>
+  <% if session[:round_info][:card_ids_in_play].length == 0 %>
   <a href="/rounds/show">Show Results</a>
   <% else %>
-  <a href="/decks/<%=@current_deck.id%>/cards/<%=session[:card_ids_in_play].sample%>">Next Card</a>
+  <a href="/decks/<%=@current_deck.id%>/cards/<%=session[:round_info][:card_ids_in_play].sample%>">Next Card</a>
   <% end %>
 <% end %>
 
