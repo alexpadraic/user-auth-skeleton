@@ -1,0 +1,10 @@
+<p><b>Correct on first try: </b><%= session[:round_info][:correct] %></p>
+<p><b>Out of: </b><%= Deck.find(session[:round_info][:deck_id]).cards.count %></p>
+<p><b>Score: </b><%= ((session[:round_info][:correct].to_f / Deck.find(session[:round_info][:deck_id]).cards.count)*100).round %>%</p>
+<p><b>Total guesses this round: </b><%= session[:round_info][:guesses] %></p>
+<br>
+<% if session[:user_id] %>
+  <p>Would you like to see your <b><a href="/users/<%= current_user.id %>">Profile Page</a></b>?</p>
+<% else %>
+  <p>Would you like to <b><a href="/sessions/new">Sign In</a></b> or <b><a href="/users/new">Register</a></b> to save your round?</p>
+<% end %>

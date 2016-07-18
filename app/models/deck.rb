@@ -3,5 +3,5 @@ class Deck < ActiveRecord::Base
   has_many :rounds
   has_many :cards
 
-  has_many :users, through: :rounds, source: :user_id
+  has_many :users, through: :rounds, foreign_key: :user_id
 end
