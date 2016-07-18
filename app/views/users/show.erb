@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-<h1>PROFILE</h1>
-
-<% correct = [] %>
-<% @user.last.rounds.each do |status| %>
-<% correct.push(status.correct_on_first_try)%>
-<%= status.id %>
-<% end %>
-<%= correct.reduce(:+)  %>
-=======
-<div class="user_show_body"><br>
-    <h3><%= current_user.name %>'s Profile</h3><br>
+<div class="container user_show_body"><br>
+    <h3 > <%= current_user.name %>'s Profile</h3><br>
     <% current_user.decks.uniq.each do |deck| %>
       <h3><%= deck.name %></h3>
       <table border="1">
@@ -30,4 +20,3 @@
       </table>
     <% end %>
 </div>
->>>>>>> c21b81082f30901113ef7fae37ccdbcabbed9781

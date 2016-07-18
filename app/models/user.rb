@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   has_many :rounds
   has_many :decks, through: :rounds, foreign_key: :deck_id
 
-
-
   include BCrypt
 
   def password
