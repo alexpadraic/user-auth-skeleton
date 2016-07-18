@@ -1,2 +1,14 @@
-<%= @user %>
 <h1>PROFILE</h1>
+
+<% correct = [] %>
+<% @user.last.rounds.each do |status| %>
+<% correct.push(status.correct_on_first_try)%>
+<%= status.id %>
+<% end %>
+<%= correct.reduce(:+)  %>
+<!-- <%# @user.rounds.each do |status| %> -->
+<!-- <p><%#= status.id %></p> -->
+ <!-- <p> <%#= status.correct_on_first_try %></p> -->
+  <!-- <p><%#= status.total_guesses %></p> -->
+
+  <!-- <%# end %> -->
