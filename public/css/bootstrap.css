@@ -10,6 +10,9 @@ html {
       -ms-text-size-adjust: 100%;
 }
 
+td {
+  text-align: center;
+}
 
 
 
