@@ -1,8 +1,17 @@
 <div class="user_show_body"><br>
-    <h3><%= current_user.name %>'s Profile</h3><br>
+
+
+
+
+
+    <div class="well well-sm"> <h3><%= current_user.name %>'s Profile</h3><br> </div>
     <% current_user.decks.uniq.each do |deck| %>
-      <h3><%= deck.name %></h3>
-      <table border="1">
+
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+       <div class="panel-heading"> <%= deck.name %></div>
+         <div class="panel-body">
+        <table class="table">
         <tr>
           <th>Date</th>
           <th>Cards in Deck</th>
@@ -18,5 +27,7 @@
         </tr>
       <% end %>
       </table>
+      </div>
+      </div>
+    </div>
     <% end %>
-</div>

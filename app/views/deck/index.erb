@@ -1,19 +1,26 @@
-<h3><%= @current_deck.name %></h3>
+<div class="col-md-4">
+      <div class="panel panel-primary">
+<div class="panel-heading"><h5><%= @current_deck.name %></h5></div>
 
-<form id="card_viewer" action="/decks/<%= @current_deck.id %>/cards/<%= @current_card.id %>" method="get">
+      <form id="card_viewer" action="/decks/<%= @current_deck.id %>/cards/<%= @current_card.id %>" method="get">
+      <br <br>
   <p><%= @current_card.question %></p>
 
   <label for="user_guess">Your guess here:</label>
-  <input type="text" name="user_guess"><br>
+  <input type="text" name="user_guess" ><br><br> <br>
 
-  <input type="submit" value="Submit">
+  <input type="submit" class="btn btn-info" value="Submit"> <br> <br>
 </form>
+
+<br> <br>
 
 <% if @result_response %>
   <p><%= @result_response %></p>
   <% if session[:round_info][:card_ids_in_play].length == 0 %>
-  <a href="/rounds/show">Show Results</a>
+  <a href="/rounds/show"> <button type="button" class="btn btn-success"> Show Results</a>
   <% else %>
-  <a href="/decks/<%=@current_deck.id%>/cards/<%=session[:round_info][:card_ids_in_play].sample%>">Next Card</a>
+  <a href="/decks/<%=@current_deck.id%>/cards/<%=session[:round_info][:card_ids_in_play].sample%>" class="button-font-color" > <button type="button" class="btn btn-primary">Next Card</a>
   <% end %>
 <% end %>
+</div>
+</div>
