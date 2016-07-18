@@ -7,9 +7,12 @@
 </div>
 <% end %>
 
+<div class="boxe container">
+  <% @decks.each do |deck| %>
+    <div class = "btn-group btn-group-xs second">
+      <a class="word" href="/decks/<%= deck.id %>/cards/<%= deck.cards.map(&:id).sample %>"><%= deck.name %></a>
+    </div>
+  <% end%>
+</div>
 
-
-<% @decks.each do |deck| %>
-  <li><a href="/decks/<%= deck.id %>/cards/<%= deck.cards.map(&:id).sample %>"><%= deck.name %></a></li>
-<% end%>
 

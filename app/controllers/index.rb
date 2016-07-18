@@ -40,7 +40,17 @@ get '/decks/:deck_id/cards/:card_id' do
     session[:round_info][:guesses] += 1
     @result_response = "WRONG! The answer was: #{@current_card.answer}"
   end
+80.times{print "*"}
+  p session[:round_info][:guesses]
+  p session[:round_info][:correct]
 
+  if session[:user_id]
+    #p current_user.rounds.create(correct_on_first_try: )
+    # user = User.find(current_user)
+    80.times{print "="}
+    # user.rounds.create()
+  end
+80.times{print "*"}
   p params
   p session
 
