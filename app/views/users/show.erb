@@ -8,6 +8,7 @@
           <th>Cards in Deck</th>
           <th>First Guess Correct</th>
           <th>Total Guesses</th>
+          <th>Percentage</th>
         </tr>
       <% deck.rounds.where(user_id: @current_user.id).each do |round| %>
         <tr>
@@ -15,8 +16,10 @@
           <td><%= deck.cards.count %></td>
           <td><%= round.correct_on_first_try %></td>
           <td><%= round.total_guesses %></td>
+          <td><%= (((100 / deck.cards.count) * round.correct_on_first_try) - round.total_guesses) + round.correct_on_first_try%>%</td>
         </tr>
       <% end %>
       </table>
     <% end %>
 </div>
+
