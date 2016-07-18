@@ -1,0 +1,12 @@
+<div class="container">
+<h1>Your new deck name is: <%= @deck.name %></h1>
+<h3>Create yours cards</h3>
+<form action="/decks/<%= @deck.id %>/cards" method="POST">
+  <label for="question">Question:</label>
+  <input type="text" name="question">
+  <label for="answer">Answer:</label>
+  <input type="text" name="answer">
+
+  <input type="submit" name="submit">
+</form>
+</div>

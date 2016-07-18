@@ -6,9 +6,9 @@ post '/users/new' do
   @user = User.new(params)
   if @user.save
     login(@user)
-    if session[:round_info]
-      Round.create(correct_on_first_try: session[:round_info][:correct], total_guesses: session[:round_info][:guesses], deck_id: session[:round_info][:deck_id], user_id: @user.id)
-    end
+    # if session[:round_info]
+    #   Round.create(correct_on_first_try: session[:round_info][:correct], total_guesses: session[:round_info][:guesses], deck_id: session[:round_info][:deck_id], user_id: @user.id)
+    # end
     redirect "/users/#{@user.id}"
   else
     erb :'/users/new'
@@ -21,3 +21,26 @@ get '/users/:id' do
   end
   erb :'/users/show'
 end
+
+get '/users/deck/new' do
+  @user = User.find(session[:user_id])
+  erb :'/users/deck'
+end
+
+post '/users/decks' do
+  @deck = Deck.new(name: params[:name], user_id: session[:user_id])
+
+  if @deck.save
+    redirect "/users/#{@deck.id}/cards/new"
+  else
+    erb :'/users/deck'
+  end
+end
+
+get '/users/:id/cards/new' do
+  @deck = Deck.find(params[:id])
+  erb :'cards/new'
+end
+
+
+
