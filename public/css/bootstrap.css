@@ -6767,6 +6767,8 @@ button.close {
   }
 }
 
+
+
 .result {
   padding-top: 5%;
 }
@@ -6777,12 +6779,13 @@ button.close {
 }
 .second {
   width: 30%;
-  padding: 50%
+  padding: 100%
   margin: 20%;
 }
 
 .word {
   font-size: 130%;
+
 }
 
 .password {
