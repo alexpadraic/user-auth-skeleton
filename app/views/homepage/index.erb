@@ -4,7 +4,7 @@
   <% end %>
 <h1 class="page-header"> Flashcard Decks</h1>
   <% @decks.each do |deck| %>
-    <div class = "btn-group btn-group-xs second">
+    <div class = " btn-group btn-group-xs second">
       <a class="word" href="/decks/<%= deck.id %>/cards/<%= deck.cards.map(&:id).sample %>"><%= deck.name %></a>
     </div>
   <% end%>

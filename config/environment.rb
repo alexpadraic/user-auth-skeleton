@@ -20,7 +20,7 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
-require 'faker'
+require 'faker' if development?
 require 'bcrypt'
 
 # Some helper constants for path-centric logic
