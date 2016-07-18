@@ -55,7 +55,7 @@ get '/decks/:deck_id/cards/:card_id' do
 end
 
 get '/rounds/show' do
-  session[:current_round_id] = nil
+
   erb :'rounds/show'
 end
 
