@@ -18,6 +18,9 @@ end
 get '/users/:id' do
   if session[:user_id]
     @user = User.where(id: session[:user_id])
+    if session[:round_info]
+      Round.create(correct_on_first_try: session[:round_info][:correct], total_guesses: session[:round_info][:guesses], deck_id: session[:round_info][:deck_id], user_id: session[:user_id])
+    end
   end
   erb :'/users/show'
 end

@@ -1,3 +1,4 @@
+
 <div class="container user_show_body"><br>
     <h1 class="page-header" > <%= current_user.name.capitalize %>'s Profile</h1><br>
     <% current_user.decks.uniq.each do |deck| %>
@@ -16,10 +17,12 @@
           <td><%= deck.cards.count %></td>
           <td><%= round.correct_on_first_try %></td>
           <td><%= round.total_guesses %></td>
-          <td><%= (((100 / deck.cards.count) * round.correct_on_first_try) - round.total_guesses) + round.correct_on_first_try%>%</td>
+          <td><%= (round.correct_on_first_try.to_f / round.deck.cards.count * 100).round(2) %>%</td>
         </tr>
       <% end %>
-      </table>
+        </table>
+        </div>
+        </div>
+      </div>
     <% end %>
 </div>
-
