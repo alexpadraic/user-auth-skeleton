@@ -1,0 +1,29 @@
+<% if @error %>
+  <%= @error %>
+<% end %>
+
+<div class="container">
+  <h1 class="page-header">Your new deck name is: <%= @deck.name %></h1>
+  <% if @card %>
+     <a href="/">
+      <button class="card_button">This Deck Is Complete</button>
+    </a>
+  <% end %>
+  <h3 class="page-header">Create yours cards</h3>
+
+  <form action="/users/decks/<%= @deck.id %>/cards" method="POST">
+    <div class="password">
+     <label for="question">Question:</label>
+     <input type="text" name="question">?
+    </div>
+    <div class="password">
+      <label for="answer">Answer:</label>
+      <input type="text" name="answer">
+    </div>
+
+    <input class="password" type="submit" name="submit">
+  </form>
+
+
+
+</div>

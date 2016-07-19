@@ -1,15 +1,19 @@
-<% if @current_user %>
-<div>
-<h1><%= @current_user.name %></h1>
- <% @current_user.decks.each do |deck| %>
-  <p><%= deck.name %></p>
+<div class="boxe container">
+  <% if session[:user_id] != nil %>
+    <a href="users/deck/new"><button>Create a new Deck!</button></a>
   <% end %>
+<h1 class="page-header"> Flashcard Decks</h1>
+  <% @decks.each do |deck| %>
+    <div class = " btn-group btn-group-xs second">
+      <a class="word" href="/decks/<%= deck.id %>/cards/<%= deck.cards.map(&:id).sample %>"><%= deck.name %></a>
+    </div>
+  <% end%>
+
+
 </div>
-<% end %>
 
+<div class="side_bar">
 
+</div>
 
-<% @decks.each do |deck| %>
-  <li><a href="/decks/<%= deck.id %>/cards/<%= deck.cards.map(&:id).sample %>"><%= deck.name %></a></li>
-<% end%>
 
