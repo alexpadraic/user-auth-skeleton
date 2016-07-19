@@ -1,5 +1,8 @@
 get '/decks/:deck_id/cards/:card_id' do
 
+  p params
+  p session
+
   @current_deck = Deck.find(params[:deck_id])
   @current_card = Card.find(params[:card_id])
 
