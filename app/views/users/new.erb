@@ -9,4 +9,9 @@
     </div>
     <input class="password" type="submit" value="submit">
   </form>
+
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+
 </div>

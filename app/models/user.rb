@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
-  has_many :rounds
-  has_many :decks, through: :rounds, foreign_key: :deck_id
 
   include BCrypt
+
+  # All of the BCrypt info methods you need - can be replaced by 'has_secure_password' if the user password field is 'password_digest'
 
   def password
     @password ||= BCrypt::Password.new(password_hash)
