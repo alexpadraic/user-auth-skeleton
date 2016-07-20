@@ -1,0 +1,28 @@
+
+<div class="container user_show_body"><br>
+    <h1 class="page-header" > <%= current_user.name.capitalize %>'s Profile</h1><br>
+    <% current_user.decks.uniq.each do |deck| %>
+      <h3><%= deck.name %></h3>
+      <table border="1">
+        <tr>
+          <th>Date</th>
+          <th>Cards in Deck</th>
+          <th>First Guess Correct</th>
+          <th>Total Guesses</th>
+          <th>Percentage</th>
+        </tr>
+      <% deck.rounds.where(user_id: @current_user.id).each do |round| %>
+        <tr>
+          <td><%= round.created_at.strftime("%d %b. %Y") %></td>
+          <td><%= deck.cards.count %></td>
+          <td><%= round.correct_on_first_try %></td>
+          <td><%= round.total_guesses %></td>
+          <td><%= (round.correct_on_first_try.to_f / round.deck.cards.count * 100).round(2) %>%</td>
+        </tr>
+      <% end %>
+        </table>
+        </div>
+        </div>
+      </div>
+    <% end %>
+</div>

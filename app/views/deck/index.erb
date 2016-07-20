@@ -1,0 +1,24 @@
+
+<div class="boxe container">
+  <h1 class="page-header"><%= @current_deck.name %></h1>
+
+  <form id="card_viewer" action="/decks/<%= @current_deck.id %>/cards/<%= @current_card.id %>" method="get">
+
+    <p>Question: <%= @current_card.question %>?</p>
+
+    <label for="user_guess">Your guess here:</label>
+    <input type="text" name="user_guess"><br>
+
+    <input class="password" type="submit" value="Submit">
+  </form>
+<div class="result">
+  <% if @result_response %>
+    <p><%= @result_response %></p>
+    <% if session[:round_info][:card_ids_in_play].length == 0 %>
+    <a href="/rounds/show">Show Results</a>
+    <% else %>
+    <a href="/decks/<%=@current_deck.id%>/cards/<%=session[:round_info][:card_ids_in_play].sample%>">Next Card</a>
+    <% end %>
+  <% end %>
+  </div>
+</div>
