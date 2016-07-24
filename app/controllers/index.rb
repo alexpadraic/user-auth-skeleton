@@ -3,8 +3,5 @@ get '/' do
 end
 
 get '/homepage' do
-  p params
-  p session
-
   erb :'homepage/index'
 end

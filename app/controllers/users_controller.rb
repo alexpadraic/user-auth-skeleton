@@ -10,6 +10,7 @@ post '/users/new' do
     redirect "/users/#{@user.id}"
   else
     @error = "Sorry, you entered in some wrong information - please try again."
+
     erb :'/users/new'
   end
 end
@@ -20,4 +21,12 @@ get '/users/:id' do
   end
 
   erb :'/users/show'
+end
+
+
+get '/users/delete' do
+  User.find(session[:user_id]).destroy
+  session[:user_id] = nil
+
+  redirect '/'
 end

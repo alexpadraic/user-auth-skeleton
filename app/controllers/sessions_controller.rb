@@ -16,5 +16,6 @@ end
 
 get '/sessions/delete' do
   session[:user_id] = nil
+
   redirect '/'
 end
